@@ -1,4 +1,0 @@
-v4.0.6
-
-- Fixes leads not rendering correctly due to swapped parms. 
-- Adds scaleModelForRender for scaling models, should fix most scaling issues.
