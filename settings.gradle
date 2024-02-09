@@ -1,0 +1,3 @@
+rootProject.name = 'geckojs-forge-4.0'
+include ':geckojs-core'
+project(':geckojs-core').projectDir = new File('./core')
