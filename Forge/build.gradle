@@ -1,0 +1,180 @@
+buildscript {
+    repositories {
+        maven { url = "https://maven.minecraftforge.net/" }
+		maven { url = "https://plugins.gradle.org/m2/" }
+        maven { url = 'https://maven.parchmentmc.org' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0"
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
+        classpath 'org.parchmentmc:librarian:1.+'
+        classpath "com.modrinth.minotaur:Minotaur:2.1.2"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+apply plugin: 'com.matthewprenger.cursegradle'
+apply from: "https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle"
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: "com.modrinth.minotaur"
+
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+configurations {
+    library
+    shade
+    implementation.extendsFrom library
+    shade.extendsFrom library
+}
+
+minecraft {
+    mappings channel: 'parchment', version: '1.19.2-2022.11.27-1.19.2'
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    runs {
+        client {
+            workingDirectory project.file('runs/' + name)
+            singleInstance true
+            taskName 'geckolib-forge4.0-Client'
+
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
+
+            mods {
+                geckolib {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        clientAlt {
+            parent minecraft.runs.client
+            workingDirectory project.file('runs/' + name)
+            taskName 'geckolib-forge4.0-Client-2'
+            args '--username', 'Alt'
+        }
+
+        server {
+            workingDirectory project.file('runs/' + name)
+            singleInstance true
+            taskName 'geckolib-forge4.0-Server'
+
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
+
+            mods {
+                geckolib {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+minecraft.runs.all {
+    lazyToken('minecraft_classpath') {
+        configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
+    }
+}
+
+repositories {
+    maven { url "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
+    maven { url "https://maven.enginehub.org/repo/" }
+    maven { url "https://maven.blamejared.com" }
+    maven { url "https://minecraft.curseforge.com/api/maven/" }
+    maven { url "https://maven.cloudsmith.io/geckolib3/geckolib/" }
+	maven { url "https://cursemaven.com" }
+    maven { url "https://plugins.gradle.org/m2/" }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+    library 'com.eliotlash.mclib:mclib:20'
+    library(project(':geckolib-core')) {
+        exclude group: 'org.apache.commons'
+    }
+    shade 'com.eliotlash.mclib:mclib:20'
+    shade(project(':geckolib-core')) {
+        exclude group: 'org.apache.commons'
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shade]
+    from sourceSets.main.allSource
+    exclude('META-INF/services/**')
+    exclude('it/**')
+    exclude('com/google/**')
+    relocate 'com.eliotlash', 'software.bernie.shadowed.eliotlash'
+    classifier ''
+}
+
+
+reobf {
+    shadowJar {} // Reobfuscate the shadowed JAR
+}
+tasks.build.dependsOn reobfShadowJar
+publish.dependsOn('reobfJar')
+shadowJar.dependsOn('classes')
+jar.finalizedBy('reobfJar')
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "GeckoLib",
+                "Specification-Vendor"    : "Gecko",
+                "Specification-Version"   : "4",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "Gecko",
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),        ])
+    }
+}
+
+task packageSources(type: ShadowJar, dependsOn: 'classes') {
+    configurations = [project.configurations.shade]
+    from sourceSets.main.allSource
+    exclude('META-INF/**')
+    exclude('it/**')
+    exclude('com/google/**')
+    relocate 'com.eliotlash', 'software.bernie.shadowed.eliotlash'
+    classifier = 'sources'
+}
+
+artifacts {
+    archives shadowJar
+    archives packageSources
+}
+
+afterEvaluate {
+    publish.dependsOn('reobfShadowJar')
+    publish.dependsOn('reobfJar')
+    publish.dependsOn('packageSources')
+    shadowJar.dependsOn(packageSources)
+    shadowJar.dependsOn('classes')
+}
+
+shadowJar.finalizedBy(reobfShadowJar)
+jar.finalizedBy(packageSources)
+
+
