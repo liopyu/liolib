@@ -98,7 +98,7 @@
 			"predicate": {
 				"pulling": 0
 			},
-			"model": "geckolib:item/pistol"
+			"model": "geckojs:item/pistol"
 		}
 	]
 }

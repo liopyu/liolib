@@ -1,9 +1,9 @@
 {
   "parent": "block/block",
   "textures": {
-    "1": "geckolib:block/default_box_side",
-    "2": "geckolib:block/default_box_top",
-    "particle": "geckolib:block/default_box_top"
+    "1": "geckojs:block/default_box_side",
+    "2": "geckojs:block/default_box_top",
+    "particle": "geckojs:block/default_box_top"
   },
   "elements": [
     {

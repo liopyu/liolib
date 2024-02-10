@@ -20,8 +20,8 @@ import net.liopyu.geckojs.util.GeckoLibUtil;
 
 /**
  * Example {@link GeoAnimatable} implementation of an entity
- * @see software.bernie.example.client.renderer.entity.BatRenderer
- * @see software.bernie.example.client.model.entity.BatModel
+ * @see net.liopyu.example.client.renderer.entity.BatRenderer
+ * @see net.liopyu.example.client.model.entity.BatModel
  */
 public class BatEntity extends PathfinderMob implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);

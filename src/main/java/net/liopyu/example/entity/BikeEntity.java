@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 /**
  * Example {@link GeoAnimatable} implementation of an entity
  * @see BikeRenderer
- * @see software.bernie.example.client.model.entity.BikeModel
+ * @see net.liopyu.example.client.model.entity.BikeModel
  */
 public class BikeEntity extends Animal implements GeoEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);

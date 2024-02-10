@@ -1,7 +1,7 @@
 {
-  "parent": "geckolib:block/default_box",
+  "parent": "geckojs:block/default_box",
   "textures": {
-    "1": "geckolib:block/botarium_side",
-    "particle": "geckolib:block/botarium_side"
+    "1": "geckojs:block/botarium_side",
+    "particle": "geckojs:block/botarium_side"
   }
 }

@@ -29,7 +29,7 @@ import net.liopyu.geckojs.util.GeckoLibUtil;
  * Example extended-support entity for GeckoLib advanced rendering
  * @see DynamicGeoEntityRenderer
  * @see MutantZombieRenderer
- * @see software.bernie.example.client.renderer.entity.GremlinRenderer
+ * @see net.liopyu.example.client.renderer.entity.GremlinRenderer
  */
 public class DynamicExampleEntity extends PathfinderMob implements GeoEntity {
 	// Pre-define our RawAnimations for use later
