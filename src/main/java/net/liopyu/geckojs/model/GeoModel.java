@@ -39,6 +39,7 @@ public abstract class GeoModel<T extends GeoAnimatable> implements CoreGeoModel<
 	private BakedGeoModel currentModel = null;
 	private double animTime;
 	private double lastGameTickTime;
+	private long lastRenderedInstance = -1;
 
 	/**
 	 * Returns the resource path for the {@link BakedGeoModel} (model json file) to render based on the provided animatable
@@ -127,33 +128,27 @@ public abstract class GeoModel<T extends GeoAnimatable> implements CoreGeoModel<
 	 * @param dataConsumer The DataTicket + data consumer to be added to the AnimationState
 	 */
 	public void addAdditionalStateData(T animatable, long instanceId, BiConsumer<DataTicket<T>, T> dataConsumer) {}
-	private long lastRenderedInstance = -1;
+
 	@Override
 	public final void handleAnimations(T animatable, long instanceId, AnimationState<T> animationState) {
-		var mc = Minecraft.getInstance();
-
+		Minecraft mc = Minecraft.getInstance();
 		AnimatableManager<T> animatableManager = animatable.getAnimatableInstanceCache().getManagerForId(instanceId);
 		Double currentTick = animationState.getData(DataTickets.TICK);
 
 		if (currentTick == null)
-			currentTick = animatable instanceof LivingEntity livingEntity ? (double)
-					livingEntity.tickCount : RenderUtils.getCurrentTick();
+			currentTick = animatable instanceof Entity entity ? (double)entity.tickCount : RenderUtils.getCurrentTick();
 
-		if (animatableManager.getFirstTickTime() == -1) animatableManager.startedAt(currentTick +
-				mc.getFrameTime()
-        );
+		if (animatableManager.getFirstTickTime() == -1)
+			animatableManager.startedAt(currentTick + mc.getFrameTime());
 
-		double currentFrameTime = currentTick - animatableManager.getFirstTickTime();
+		double currentFrameTime = animatable instanceof Entity ? currentTick + mc.getFrameTime() : currentTick - animatableManager.getFirstTickTime();
 		boolean isReRender = !animatableManager.isFirstTick() && currentFrameTime == animatableManager.getLastUpdateTime();
 
-		if (isReRender && instanceId == this.lastRenderedInstance) return;
+		if (isReRender && instanceId == this.lastRenderedInstance)
+			return;
 
-		if (!isReRender && (!mc.isPaused() || animatable.shouldPlayAnimsWhileGamePaused())) {
-			if (animatable instanceof LivingEntity) {
-				animatableManager.updatedAt(currentFrameTime);
-			} else {
-				animatableManager.updatedAt(currentFrameTime);
-			}
+		if (!mc.isPaused() || animatable.shouldPlayAnimsWhileGamePaused()) {
+			animatableManager.updatedAt(currentFrameTime);
 
 			double lastUpdateTime = animatableManager.getLastUpdateTime();
 			this.animTime += lastUpdateTime - this.lastGameTickTime;
@@ -161,13 +156,13 @@ public abstract class GeoModel<T extends GeoAnimatable> implements CoreGeoModel<
 		}
 
 		animationState.animationTick = this.animTime;
+		this.lastRenderedInstance = instanceId;
 		AnimationProcessor<T> processor = getAnimationProcessor();
 
 		processor.preAnimationSetup(animationState.getAnimatable(), this.animTime);
 
 		if (!processor.getRegisteredBones().isEmpty())
-			processor.tickAnimation(animatable, this, animatableManager, this.animTime, animationState,
-					crashIfBoneMissing());
+			processor.tickAnimation(animatable, this, animatableManager, this.animTime, animationState, crashIfBoneMissing());
 
 		setCustomAnimations(animatable, instanceId, animationState);
 	}
