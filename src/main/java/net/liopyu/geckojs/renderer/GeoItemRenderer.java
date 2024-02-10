@@ -154,7 +154,7 @@ public class GeoItemRenderer<T extends Item & GeoAnimatable> extends BlockEntity
 
 	@Override
 	public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack poseStack,
-			MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+							 MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
 		this.animatable = (T)stack.getItem();
 		this.currentItemStack = stack;
 		this.renderPerspective = transformType;
@@ -238,16 +238,16 @@ public class GeoItemRenderer<T extends Item & GeoAnimatable> extends BlockEntity
 		GeoRenderer.super.renderRecursively(poseStack, animatable, bone, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue,
 				alpha);
 	}
-	
-    /**
-     * Scales the {@link PoseStack} in preparation for rendering the model, excluding when re-rendering the model as part of a {@link GeoRenderLayer} or external render call.<br>
-     * Override and call super with modified scale values as needed to further modify the scale of the model (E.G. child entities)
-     */
+
+	/**
+	 * Scales the {@link PoseStack} in preparation for rendering the model, excluding when re-rendering the model as part of a {@link GeoRenderLayer} or external render call.<br>
+	 * Override and call super with modified scale values as needed to further modify the scale of the model (E.G. child entities)
+	 */
 	@Override
-    public void scaleModelForRender(float widthScale, float heightScale, PoseStack poseStack, T animatable, BakedGeoModel model, boolean isReRender, float partialTick, int packedLight, int packedOverlay) {
-        if (!isReRender && (widthScale != 1 || heightScale != 1))
-            poseStack.scale(this.scaleWidth, this.scaleHeight, this.scaleWidth);
-    }
+	public void scaleModelForRender(float widthScale, float heightScale, PoseStack poseStack, T animatable, BakedGeoModel model, boolean isReRender, float partialTick, int packedLight, int packedOverlay) {
+		if (!isReRender && (widthScale != 1 || heightScale != 1))
+			poseStack.scale(this.scaleWidth, this.scaleHeight, this.scaleWidth);
+	}
 
 	/**
 	 * Create and fire the relevant {@code CompileLayers} event hook for this renderer

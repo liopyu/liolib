@@ -3,7 +3,6 @@ package net.liopyu.geckojs.renderer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.core.Direction.Axis;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -124,7 +123,7 @@ public class GeoBlockRenderer<T extends BlockEntity & GeoAnimatable> implements 
 
 	@Override
 	public void render(BlockEntity animatable, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource,
-			int packedLight, int packedOverlay) {
+					   int packedLight, int packedOverlay) {
 		this.animatable = (T)animatable;
 
 		defaultRender(poseStack, this.animatable, bufferSource, null, null, 0, partialTick, packedLight);
@@ -170,11 +169,12 @@ public class GeoBlockRenderer<T extends BlockEntity & GeoAnimatable> implements 
 		if (bone.isTrackingMatrices()) {
 			Matrix4f poseState = new Matrix4f(poseStack.last().pose());
 			Matrix4f localMatrix = RenderUtils.invertAndMultiplyMatrices(poseState, this.blockRenderTranslations);
-			Matrix4f worldState = new Matrix4f(localMatrix);
+			Matrix4f worldState = localMatrix.copy();
 			BlockPos pos = this.animatable.getBlockPos();
 
 			bone.setModelSpaceMatrix(RenderUtils.invertAndMultiplyMatrices(poseState, this.modelRenderTranslations));
 			bone.setLocalSpaceMatrix(localMatrix);
+			worldState.translate(new Vector3f(this.animatable.getBlockPos().getX(), this.animatable.getBlockPos().getY(), this.animatable.getBlockPos().getZ()));
 			bone.setWorldSpaceMatrix(worldState);
 		}
 
@@ -210,16 +210,16 @@ public class GeoBlockRenderer<T extends BlockEntity & GeoAnimatable> implements 
 
 		return Direction.NORTH;
 	}
-	
-    /**
-     * Scales the {@link PoseStack} in preparation for rendering the model, excluding when re-rendering the model as part of a {@link GeoRenderLayer} or external render call.<br>
-     * Override and call super with modified scale values as needed to further modify the scale of the model (E.G. child entities)
-     */
+
+	/**
+	 * Scales the {@link PoseStack} in preparation for rendering the model, excluding when re-rendering the model as part of a {@link GeoRenderLayer} or external render call.<br>
+	 * Override and call super with modified scale values as needed to further modify the scale of the model (E.G. child entities)
+	 */
 	@Override
-    public void scaleModelForRender(float widthScale, float heightScale, PoseStack poseStack, T animatable, BakedGeoModel model, boolean isReRender, float partialTick, int packedLight, int packedOverlay) {
-        if (!isReRender && (widthScale != 1 || heightScale != 1))
-            poseStack.scale(this.scaleWidth, this.scaleHeight, this.scaleWidth);
-    }
+	public void scaleModelForRender(float widthScale, float heightScale, PoseStack poseStack, T animatable, BakedGeoModel model, boolean isReRender, float partialTick, int packedLight, int packedOverlay) {
+		if (!isReRender && (widthScale != 1 || heightScale != 1))
+			poseStack.scale(this.scaleWidth, this.scaleHeight, this.scaleWidth);
+	}
 
 	/**
 	 * Create and fire the relevant {@code CompileLayers} event hook for this renderer

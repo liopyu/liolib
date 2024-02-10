@@ -14,7 +14,7 @@ import net.liopyu.geckojs.util.GeckoLibUtil;
 
 /**
  * Example {@link BlockEntity} implementation using a GeckoLib model.
- * @see net.lio.example.client.model.block.FertilizerModel
+ * @see net.liopyu.example.client.model.block.FertilizerModel
  * @see FertilizerBlockRenderer
  */
 public class FertilizerBlockEntity extends BlockEntity implements GeoBlockEntity {

@@ -15,7 +15,7 @@ Refer to the [official GeckoLib documentation](https://github.com/bernie-g/gecko
 If you encounter any issues or have suggestions for improvements DO NOT GO TO GECKOLIB, please open an issue on this GitHub repository. Contributions are welcome through pull requests.
 
 ## License
-This project is licensed under the [MIT License](link-to-license).
+This project is licensed under the [MIT License](https://github.com/liopyu/entityjs-geckolib4/blob/master/LICENSE).
 
 ## Acknowledgements
 Special thanks to the creators and maintainers of GeckoLib for their excellent work on the original library.

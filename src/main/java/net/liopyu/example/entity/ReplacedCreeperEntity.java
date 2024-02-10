@@ -12,8 +12,8 @@ import net.liopyu.geckojs.util.GeckoLibUtil;
  * Replacement {@link net.minecraft.world.entity.monster.Creeper} {@link GeoEntity} to showcase
  * replacing the model and animations of an existing entity
  * @see net.liopyu.geckojs.renderer.GeoReplacedEntityRenderer
- * @see net.liopyu.example.client.renderer.entity.ReplacedCreeperRenderer
- * @see net.liopyu.example.client.model.entity.ReplacedCreeperModel
+ * @see software.bernie.example.client.renderer.entity.ReplacedCreeperRenderer
+ * @see software.bernie.example.client.model.entity.ReplacedCreeperModel
  */
 public class ReplacedCreeperEntity implements GeoReplacedEntity {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);

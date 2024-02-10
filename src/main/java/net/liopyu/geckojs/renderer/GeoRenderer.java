@@ -270,9 +270,9 @@ public interface GeoRenderer<T extends GeoAnimatable> {
 		for (GeoQuad quad : cube.quads()) {
 			if (quad == null)
 				continue;
-
 			Vector3f normal = quad.normal().copy();
 			normal.transform(normalisedPoseState);
+
 			RenderUtils.fixInvertedFlatCube(cube, normal);
 			createVerticesOfQuad(quad, poseState, normal, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 		}
@@ -286,6 +286,7 @@ public interface GeoRenderer<T extends GeoAnimatable> {
 		for (GeoVertex vertex : quad.vertices()) {
 			Vector4f vector4f = new Vector4f(vertex.position().x(), vertex.position().y(), vertex.position().z(), 1);
 			vector4f.transform(poseState);
+
 			buffer.vertex(vector4f.x(), vector4f.y(), vector4f.z(), red, green, blue, alpha, vertex.texU(),
 					vertex.texV(), packedOverlay, packedLight, normal.x(), normal.y(), normal.z());
 		}

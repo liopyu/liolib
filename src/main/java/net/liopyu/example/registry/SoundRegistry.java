@@ -11,5 +11,6 @@ public final class SoundRegistry {
 	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,
 			GeckoLib.MOD_ID);
 
-
+	public static RegistryObject<SoundEvent> JACK_MUSIC = SOUNDS.register("jack_in_the_box_music",
+			() -> new SoundEvent(new ResourceLocation(GeckoLib.MOD_ID, "jack_in_the_box_music")));
 }

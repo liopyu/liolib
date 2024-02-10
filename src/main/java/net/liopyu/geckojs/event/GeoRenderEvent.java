@@ -100,7 +100,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -142,7 +142,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -232,7 +232,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -274,7 +274,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -313,6 +313,7 @@ public interface GeoRenderEvent {
 
 	/**
 	 * Renderer events for {@link net.minecraft.world.entity.Entity Entities} being rendered by {@link GeoEntityRenderer}, as well as
+	 * {@link net.liopyu.geckojs.renderer.DynamicGeoEntityRenderer DynamicGeoEntityRenderer}
 	 */
 	abstract class Entity extends Event implements GeoRenderEvent {
 		private final GeoEntityRenderer<?> renderer;
@@ -364,7 +365,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -406,7 +407,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -496,7 +497,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -538,7 +539,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -621,7 +622,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -663,7 +664,7 @@ public interface GeoRenderEvent {
 			public PoseStack getPoseStack() {
 				return this.poseStack;
 			}
-			
+
 			public BakedGeoModel getModel() {
 				return this.model;
 			}
@@ -700,5 +701,135 @@ public interface GeoRenderEvent {
 		}
 	}
 
+	/**
+	 * Renderer events for miscellaneous {@link net.liopyu.geckojs.animatable.GeoReplacedEntity replaced entities} being rendered by {@link GeoReplacedEntityRenderer}
+	 */
+	abstract class ReplacedEntity extends Event implements GeoRenderEvent {
+		private final GeoReplacedEntityRenderer<?, ?> renderer;
 
+		public ReplacedEntity(GeoReplacedEntityRenderer<?, ?> renderer) {
+			this.renderer = renderer;
+		}
+
+		/**
+		 * Returns the renderer for this event
+		 */
+		@Override
+		public GeoReplacedEntityRenderer<?, ?> getRenderer() {
+			return this.renderer;
+		}
+
+		/**
+		 * Shortcut method to get the Entity currently being rendered
+		 */
+		public net.minecraft.world.entity.Entity getReplacedEntity() {
+			return getRenderer().getCurrentEntity();
+		}
+
+		/**
+		 * Pre-render event for replaced entities being rendered by {@link GeoReplacedEntityRenderer<?, ?>}.<br>
+		 * This event is called before rendering, but after {@link GeoRenderer#preRender}<br>
+		 * <br>
+		 * This event is {@link Cancelable}.<br>
+		 * If the event is cancelled, the entity will not be rendered and the corresponding {@link Post} event will not be fired.
+		 */
+		@Cancelable
+		public static class Pre extends ReplacedEntity {
+			private final PoseStack poseStack;
+			private final BakedGeoModel model;
+			private final MultiBufferSource bufferSource;
+			private final float partialTick;
+			private final int packedLight;
+
+			public Pre(GeoReplacedEntityRenderer<?, ?> renderer, PoseStack poseStack, BakedGeoModel model, MultiBufferSource bufferSource, float partialTick, int packedLight) {
+				super(renderer);
+
+				this.poseStack = poseStack;
+				this.model = model;
+				this.bufferSource = bufferSource;
+				this.partialTick = partialTick;
+				this.packedLight = packedLight;
+			}
+
+			public PoseStack getPoseStack() {
+				return this.poseStack;
+			}
+
+			public BakedGeoModel getModel() {
+				return this.model;
+			}
+
+			public MultiBufferSource getBufferSource() {
+				return this.bufferSource;
+			}
+
+			public float getPartialTick() {
+				return this.partialTick;
+			}
+
+			public int getPackedLight() {
+				return this.packedLight;
+			}
+		}
+
+		/**
+		 * Post-render event for replaced entities being rendered by {@link GeoReplacedEntityRenderer}.<br>
+		 * This event is called after {@link GeoRenderer#postRender}
+		 */
+		public static class Post extends ReplacedEntity {
+			private final PoseStack poseStack;
+			private final BakedGeoModel model;
+			private final MultiBufferSource bufferSource;
+			private final float partialTick;
+			private final int packedLight;
+
+			public Post(GeoReplacedEntityRenderer<?, ?> renderer, PoseStack poseStack, BakedGeoModel model, MultiBufferSource bufferSource, float partialTick, int packedLight) {
+				super(renderer);
+
+				this.poseStack = poseStack;
+				this.model = model;
+				this.bufferSource = bufferSource;
+				this.partialTick = partialTick;
+				this.packedLight = packedLight;
+			}
+
+			public PoseStack getPoseStack() {
+				return this.poseStack;
+			}
+
+			public BakedGeoModel getModel() {
+				return this.model;
+			}
+
+			public MultiBufferSource getBufferSource() {
+				return this.bufferSource;
+			}
+
+			public float getPartialTick() {
+				return this.partialTick;
+			}
+
+			public int getPackedLight() {
+				return this.packedLight;
+			}
+		}
+
+		/**
+		 * One-time event for a {@link GeoReplacedEntityRenderer} called on first initialisation.<br>
+		 * Use this event to add render layers to the renderer as needed
+		 */
+		public static class CompileRenderLayers extends ReplacedEntity {
+			public CompileRenderLayers(GeoReplacedEntityRenderer<?, ?> renderer) {
+				super(renderer);
+			}
+
+			/**
+			 * Adds a {@link GeoRenderLayer} to the renderer.<br>
+			 * Type-safety is not checked here, so ensure that your layer is compatible with this animatable and renderer
+			 */
+			public void addLayer(GeoRenderLayer renderLayer) {
+				getRenderer().addRenderLayer(renderLayer);
+			}
+		}
+	}
 }
