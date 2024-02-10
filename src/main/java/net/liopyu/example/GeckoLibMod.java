@@ -53,6 +53,6 @@ public final class GeckoLibMod {
 	 * {@link GeckoLibMod#DISABLE_EXAMPLES_PROPERTY_KEY} to false in your run args
 	 */
 	static boolean shouldRegisterExamples() {
-		return !FMLEnvironment.production && !Boolean.getBoolean(DISABLE_EXAMPLES_PROPERTY_KEY);
+		return true;//!FMLEnvironment.production && !Boolean.getBoolean(DISABLE_EXAMPLES_PROPERTY_KEY);
 	}
 }
