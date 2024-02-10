@@ -51,7 +51,12 @@ public class EntityAnimTriggerPacket<D> {
 
 			if (entity == null)
 				return;
+			if (this.isReplacedEntity) {
+				GeoAnimatable animatable = RenderUtils.getReplacedAnimatable(entity.getType());
 
+				if (animatable instanceof GeoReplacedEntity replacedEntity)
+					replacedEntity.triggerAnim(entity, this.controllerName.isEmpty() ? null : this.controllerName, this.animName);
+			}
 
 			else if (entity instanceof GeoEntity geoEntity) {
 				geoEntity.triggerAnim(this.controllerName.isEmpty() ? null : this.controllerName, this.animName);

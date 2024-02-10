@@ -6,6 +6,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import it.unimi.dsi.fastutil.ints.IntIntImmutablePair;
 import it.unimi.dsi.fastutil.ints.IntIntPair;
+import net.liopyu.geckojs.renderer.GeoReplacedEntityRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -237,7 +238,17 @@ public final class RenderUtils {
 		return renderer instanceof GeoRenderer<?> geoRenderer ? geoRenderer.getGeoModel() : null;
 	}
 
+	/**
+	 * Gets a GeoAnimatable instance that has been registered as the replacement renderer for a given {@link EntityType}
+	 * @param entityType The {@code EntityType} to retrieve the replaced {@link GeoAnimatable} for
+	 * @return The {@code GeoAnimatable} instance, or null if one isn't found
+	 */
+	@Nullable
+	public static GeoAnimatable getReplacedAnimatable(EntityType<?> entityType) {
+		EntityRenderer<?> renderer = Minecraft.getInstance().getEntityRenderDispatcher().renderers.get(entityType);
 
+		return renderer instanceof GeoReplacedEntityRenderer<?, ?> replacedEntityRenderer ? replacedEntityRenderer.getAnimatable() : null;
+	}
 
 	/**
 	 * Gets a {@link GeoModel} instance from a given {@link Entity}.<br>
