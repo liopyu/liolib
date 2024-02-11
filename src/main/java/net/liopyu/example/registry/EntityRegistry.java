@@ -7,7 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.liopyu.example.entity.*;
-import net.liopyu.geckojs.GeckoLib;
+import net.liopyu.liolib.GeckoLib;
 
 public final class EntityRegistry {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES,

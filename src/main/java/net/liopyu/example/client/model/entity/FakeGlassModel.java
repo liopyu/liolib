@@ -4,9 +4,9 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.liopyu.example.client.renderer.entity.FakeGlassRenderer;
 import net.liopyu.example.entity.FakeGlassEntity;
-import net.liopyu.geckojs.GeckoLib;
-import net.liopyu.geckojs.model.DefaultedEntityGeoModel;
-import net.liopyu.geckojs.model.GeoModel;
+import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.model.DefaultedEntityGeoModel;
+import net.liopyu.liolib.model.GeoModel;
 
 /**
  * Example {@link GeoModel} for the {@link FakeGlassEntity}

@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.liopyu.example.registry.EntityRegistry;
-import net.liopyu.geckojs.GeckoLib;
+import net.liopyu.liolib.GeckoLib;
 
 @Mod.EventBusSubscriber(modid = GeckoLib.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class CommonListener {

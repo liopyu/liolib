@@ -27,7 +27,7 @@ import net.liopyu.example.client.renderer.entity.ReplacedCreeperRenderer;
 import net.liopyu.example.registry.BlockEntityRegistry;
 import net.liopyu.example.registry.BlockRegistry;
 import net.liopyu.example.registry.EntityRegistry;
-import net.liopyu.geckojs.GeckoLib;
+import net.liopyu.liolib.GeckoLib;
 
 @Mod.EventBusSubscriber(modid = GeckoLib.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientListener {

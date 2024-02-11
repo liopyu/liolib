@@ -11,15 +11,15 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.liopyu.example.client.renderer.item.JackInTheBoxRenderer;
 import net.liopyu.example.registry.SoundRegistry;
-import net.liopyu.geckojs.animatable.GeoItem;
-import net.liopyu.geckojs.animatable.SingletonGeoAnimatable;
-import net.liopyu.geckojs.core.animation.AnimatableManager;
-import net.liopyu.geckojs.core.animation.AnimationController;
-import net.liopyu.geckojs.core.animation.RawAnimation;
-import net.liopyu.geckojs.core.animatable.instance.AnimatableInstanceCache;
-import net.liopyu.geckojs.core.object.PlayState;
-import net.liopyu.geckojs.util.ClientUtils;
-import net.liopyu.geckojs.util.GeckoLibUtil;
+import net.liopyu.liolib.animatable.GeoItem;
+import net.liopyu.liolib.animatable.SingletonGeoAnimatable;
+import net.liopyu.liolib.core.animation.AnimatableManager;
+import net.liopyu.liolib.core.animation.AnimationController;
+import net.liopyu.liolib.core.animation.RawAnimation;
+import net.liopyu.liolib.core.animatable.instance.AnimatableInstanceCache;
+import net.liopyu.liolib.core.object.PlayState;
+import net.liopyu.liolib.util.ClientUtils;
+import net.liopyu.liolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 

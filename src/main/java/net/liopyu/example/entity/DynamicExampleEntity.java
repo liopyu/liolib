@@ -12,18 +12,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.liopyu.example.client.renderer.entity.MutantZombieRenderer;
-import net.liopyu.geckojs.GeckoLib;
-import net.liopyu.geckojs.animatable.GeoEntity;
-import net.liopyu.geckojs.constant.DefaultAnimations;
-import net.liopyu.geckojs.core.animatable.GeoAnimatable;
-import net.liopyu.geckojs.core.animatable.instance.AnimatableInstanceCache;
-import net.liopyu.geckojs.core.animation.AnimatableManager;
-import net.liopyu.geckojs.core.animation.AnimationController;
-import net.liopyu.geckojs.core.animation.AnimationState;
-import net.liopyu.geckojs.core.animation.RawAnimation;
-import net.liopyu.geckojs.core.object.PlayState;
-import net.liopyu.geckojs.renderer.DynamicGeoEntityRenderer;
-import net.liopyu.geckojs.util.GeckoLibUtil;
+import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.animatable.GeoEntity;
+import net.liopyu.liolib.constant.DefaultAnimations;
+import net.liopyu.liolib.core.animatable.GeoAnimatable;
+import net.liopyu.liolib.core.animatable.instance.AnimatableInstanceCache;
+import net.liopyu.liolib.core.animation.AnimatableManager;
+import net.liopyu.liolib.core.animation.AnimationController;
+import net.liopyu.liolib.core.animation.AnimationState;
+import net.liopyu.liolib.core.animation.RawAnimation;
+import net.liopyu.liolib.core.object.PlayState;
+import net.liopyu.liolib.renderer.DynamicGeoEntityRenderer;
+import net.liopyu.liolib.util.GeckoLibUtil;
 
 /**
  * Example extended-support entity for GeckoLib advanced rendering

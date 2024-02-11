@@ -13,12 +13,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.liopyu.example.client.model.entity.GremlinModel;
 import net.liopyu.example.entity.DynamicExampleEntity;
-import net.liopyu.geckojs.GeckoLib;
-import net.liopyu.geckojs.cache.object.BakedGeoModel;
-import net.liopyu.geckojs.cache.object.GeoBone;
-import net.liopyu.geckojs.renderer.DynamicGeoEntityRenderer;
-import net.liopyu.geckojs.renderer.layer.BlockAndItemGeoLayer;
-import net.liopyu.geckojs.renderer.layer.ItemArmorGeoLayer;
+import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.cache.object.BakedGeoModel;
+import net.liopyu.liolib.cache.object.GeoBone;
+import net.liopyu.liolib.renderer.DynamicGeoEntityRenderer;
+import net.liopyu.liolib.renderer.layer.BlockAndItemGeoLayer;
+import net.liopyu.liolib.renderer.layer.ItemArmorGeoLayer;
 import com.mojang.math.Vector3f;
 
 import javax.annotation.Nonnull;

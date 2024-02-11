@@ -1,0 +1,7 @@
+{
+  "parent": "liolib:block/default_box",
+  "textures": {
+    "1": "liolib:block/botarium_side",
+    "particle": "liolib:block/botarium_side"
+  }
+}

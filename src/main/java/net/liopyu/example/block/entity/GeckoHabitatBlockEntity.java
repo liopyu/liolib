@@ -6,12 +6,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.liopyu.example.client.model.block.GeckoHabitatModel;
 import net.liopyu.example.client.renderer.block.GeckoHabitatBlockRenderer;
 import net.liopyu.example.registry.BlockEntityRegistry;
-import net.liopyu.geckojs.animatable.GeoBlockEntity;
-import net.liopyu.geckojs.constant.DefaultAnimations;
-import net.liopyu.geckojs.core.animatable.instance.AnimatableInstanceCache;
-import net.liopyu.geckojs.core.animation.AnimatableManager;
-import net.liopyu.geckojs.core.animation.AnimationController;
-import net.liopyu.geckojs.util.GeckoLibUtil;
+import net.liopyu.liolib.animatable.GeoBlockEntity;
+import net.liopyu.liolib.constant.DefaultAnimations;
+import net.liopyu.liolib.core.animatable.instance.AnimatableInstanceCache;
+import net.liopyu.liolib.core.animation.AnimatableManager;
+import net.liopyu.liolib.core.animation.AnimationController;
+import net.liopyu.liolib.util.GeckoLibUtil;
 
 /**
  * Example {@link BlockEntity} implementation using a GeckoLib model.

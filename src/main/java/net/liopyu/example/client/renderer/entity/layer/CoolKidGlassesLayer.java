@@ -7,10 +7,10 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.liopyu.example.entity.CoolKidEntity;
-import net.liopyu.geckojs.GeckoLib;
-import net.liopyu.geckojs.cache.object.BakedGeoModel;
-import net.liopyu.geckojs.renderer.GeoRenderer;
-import net.liopyu.geckojs.renderer.layer.GeoRenderLayer;
+import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.cache.object.BakedGeoModel;
+import net.liopyu.liolib.renderer.GeoRenderer;
+import net.liopyu.liolib.renderer.layer.GeoRenderLayer;
 
 /**
  * Example implementation of a {@link GeoRenderLayer}.<br>

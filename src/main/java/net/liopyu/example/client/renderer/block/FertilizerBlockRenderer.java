@@ -2,7 +2,7 @@ package net.liopyu.example.client.renderer.block;
 
 import net.liopyu.example.block.entity.FertilizerBlockEntity;
 import net.liopyu.example.client.model.block.FertilizerModel;
-import net.liopyu.geckojs.renderer.GeoBlockRenderer;
+import net.liopyu.liolib.renderer.GeoBlockRenderer;
 
 /**
  * Example {@link net.minecraft.world.level.block.entity.BlockEntity} renderer for {@link FertilizerBlockEntity}

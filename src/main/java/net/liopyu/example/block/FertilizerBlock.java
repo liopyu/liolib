@@ -17,7 +17,7 @@ import net.minecraft.world.level.material.Material;
 import net.liopyu.example.block.entity.FertilizerBlockEntity;
 import net.liopyu.example.client.renderer.block.FertilizerBlockRenderer;
 import net.liopyu.example.registry.BlockEntityRegistry;
-import net.liopyu.geckojs.GeckoLib;
+import net.liopyu.liolib.GeckoLib;
 
 import javax.annotation.Nullable;
 import java.util.List;

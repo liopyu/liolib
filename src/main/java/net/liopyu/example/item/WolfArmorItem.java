@@ -15,21 +15,21 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
 import net.liopyu.example.client.renderer.armor.WolfArmorRenderer;
 import net.liopyu.example.registry.ItemRegistry;
-import net.liopyu.geckojs.animatable.GeoItem;
-import net.liopyu.geckojs.constant.DataTickets;
-import net.liopyu.geckojs.constant.DefaultAnimations;
-import net.liopyu.geckojs.core.animation.AnimatableManager;
-import net.liopyu.geckojs.core.animation.AnimationController;
-import net.liopyu.geckojs.core.animatable.instance.AnimatableInstanceCache;
-import net.liopyu.geckojs.core.object.PlayState;
-import net.liopyu.geckojs.renderer.GeoArmorRenderer;
-import net.liopyu.geckojs.util.GeckoLibUtil;
+import net.liopyu.liolib.animatable.GeoItem;
+import net.liopyu.liolib.constant.DataTickets;
+import net.liopyu.liolib.constant.DefaultAnimations;
+import net.liopyu.liolib.core.animation.AnimatableManager;
+import net.liopyu.liolib.core.animation.AnimationController;
+import net.liopyu.liolib.core.animatable.instance.AnimatableInstanceCache;
+import net.liopyu.liolib.core.object.PlayState;
+import net.liopyu.liolib.renderer.GeoArmorRenderer;
+import net.liopyu.liolib.util.GeckoLibUtil;
 
 import java.util.Set;
 import java.util.function.Consumer;
 
 /**
- * Example {@link net.liopyu.geckojs.core.animatable.GeoAnimatable GeoAnimatable} {@link ArmorItem} implementation
+ * Example {@link net.liopyu.liolib.core.animatable.GeoAnimatable GeoAnimatable} {@link ArmorItem} implementation
  * @see GeoItem
  * @see WolfArmorRenderer
  */

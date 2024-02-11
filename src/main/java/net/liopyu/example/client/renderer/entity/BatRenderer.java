@@ -8,12 +8,12 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.liopyu.example.client.model.entity.BatModel;
 import net.liopyu.example.entity.BatEntity;
-import net.liopyu.geckojs.cache.object.BakedGeoModel;
-import net.liopyu.geckojs.renderer.GeoEntityRenderer;
-import net.liopyu.geckojs.renderer.layer.AutoGlowingGeoLayer;
+import net.liopyu.liolib.cache.object.BakedGeoModel;
+import net.liopyu.liolib.renderer.GeoEntityRenderer;
+import net.liopyu.liolib.renderer.layer.AutoGlowingGeoLayer;
 
 /**
- * Example {@link net.liopyu.geckojs.renderer.GeoRenderer} for {@link BatEntity}
+ * Example {@link net.liopyu.liolib.renderer.GeoRenderer} for {@link BatEntity}
  * @see BatModel
  */
 public class BatRenderer extends GeoEntityRenderer<BatEntity> {

@@ -1,7 +1,0 @@
-{
-  "parent": "geckojs:block/default_box",
-  "textures": {
-    "1": "geckojs:block/botarium_side",
-    "particle": "geckojs:block/botarium_side"
-  }
-}

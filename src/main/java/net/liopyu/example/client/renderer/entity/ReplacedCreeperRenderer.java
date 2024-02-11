@@ -8,8 +8,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.monster.Creeper;
 import net.liopyu.example.client.model.entity.ReplacedCreeperModel;
 import net.liopyu.example.entity.ReplacedCreeperEntity;
-import net.liopyu.geckojs.cache.object.BakedGeoModel;
-import net.liopyu.geckojs.renderer.GeoReplacedEntityRenderer;
+import net.liopyu.liolib.cache.object.BakedGeoModel;
+import net.liopyu.liolib.renderer.GeoReplacedEntityRenderer;
 
 /**
  * Example replacement renderer for a {@link Creeper}.<br>

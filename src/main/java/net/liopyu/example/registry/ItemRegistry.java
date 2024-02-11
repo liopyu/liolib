@@ -13,7 +13,7 @@ import net.liopyu.example.item.GeckoArmorItem;
 import net.liopyu.example.item.JackInTheBoxItem;
 import net.liopyu.example.item.PistolItem;
 import net.liopyu.example.item.WolfArmorItem;
-import net.liopyu.geckojs.GeckoLib;
+import net.liopyu.liolib.GeckoLib;
 
 public final class ItemRegistry {
 	public static final DeferredRegister<Item> ITEMS =

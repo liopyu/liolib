@@ -5,13 +5,13 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.liopyu.geckojs.animatable.GeoEntity;
-import net.liopyu.geckojs.constant.DefaultAnimations;
-import net.liopyu.geckojs.core.animatable.GeoAnimatable;
-import net.liopyu.geckojs.core.animatable.instance.AnimatableInstanceCache;
-import net.liopyu.geckojs.core.animation.AnimatableManager;
-import net.liopyu.geckojs.core.animation.AnimationController;
-import net.liopyu.geckojs.util.GeckoLibUtil;
+import net.liopyu.liolib.animatable.GeoEntity;
+import net.liopyu.liolib.constant.DefaultAnimations;
+import net.liopyu.liolib.core.animatable.GeoAnimatable;
+import net.liopyu.liolib.core.animatable.instance.AnimatableInstanceCache;
+import net.liopyu.liolib.core.animation.AnimatableManager;
+import net.liopyu.liolib.core.animation.AnimationController;
+import net.liopyu.liolib.util.GeckoLibUtil;
 
 /**
  * Example {@link GeoAnimatable} implementation of an entity that uses a render layer
