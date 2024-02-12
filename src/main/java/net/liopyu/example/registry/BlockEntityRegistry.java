@@ -6,11 +6,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.liopyu.example.block.entity.GeckoHabitatBlockEntity;
 import net.liopyu.example.block.entity.FertilizerBlockEntity;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 
 public final class BlockEntityRegistry {
 	public static final DeferredRegister<BlockEntityType<?>> TILES = DeferredRegister
-			.create(ForgeRegistries.BLOCK_ENTITY_TYPES, GeckoLib.MOD_ID);
+			.create(ForgeRegistries.BLOCK_ENTITY_TYPES, LioLib.MOD_ID);
 
 	public static final RegistryObject<BlockEntityType<GeckoHabitatBlockEntity>> GECKO_HABITAT = TILES
 			.register("habitat", () -> BlockEntityType.Builder

@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import org.apache.commons.io.IOUtils;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.cache.object.BakedGeoModel;
 import net.liopyu.liolib.loading.json.raw.Model;
 import net.liopyu.liolib.loading.object.BakedAnimations;
@@ -56,7 +56,7 @@ public final class FileLoader {
 			return IOUtils.toString(inputStream, Charset.defaultCharset());
 		}
 		catch (Exception e) {
-			GeckoLib.LOGGER.error("Couldn't load " + location, e);
+			LioLib.LOGGER.error("Couldn't load " + location, e);
 
 			throw new RuntimeException(new FileNotFoundException(location.toString()));
 		}

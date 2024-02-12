@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.liopyu.example.client.model.entity.MutantZombieModel;
 import net.liopyu.example.entity.DynamicExampleEntity;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.cache.object.BakedGeoModel;
 import net.liopyu.liolib.cache.object.GeoBone;
 import net.liopyu.liolib.renderer.DynamicGeoEntityRenderer;
@@ -45,7 +45,7 @@ public class MutantZombieRenderer extends DynamicGeoEntityRenderer<DynamicExampl
 	private static final String LEFT_SLEEVE = "armorBipedLeftArm";
 	private static final String HELMET = "armorBipedHead";
 
-	protected final ResourceLocation CAPE_TEXTURE = new ResourceLocation(GeckoLib.MOD_ID, "textures/entity/dynamic_entity_cape.png");
+	protected final ResourceLocation CAPE_TEXTURE = new ResourceLocation(LioLib.MOD_ID, "textures/entity/dynamic_entity_cape.png");
 
 	protected ItemStack mainHandItem;
 	protected ItemStack offhandItem;

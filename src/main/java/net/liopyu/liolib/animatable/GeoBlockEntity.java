@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.PacketDistributor;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.core.animatable.GeoAnimatable;
 import net.liopyu.liolib.core.animation.AnimatableManager;
 import net.liopyu.liolib.network.GeckoLibNetwork;
@@ -43,7 +43,7 @@ public interface GeoBlockEntity extends GeoAnimatable {
 		Level level = blockEntity.getLevel();
 
 		if (level == null) {
-			GeckoLib.LOGGER.error("Attempting to set animation data for BlockEntity too early! Must wait until after the BlockEntity has been set in the world. (" + blockEntity.getClass().toString() + ")");
+			LioLib.LOGGER.error("Attempting to set animation data for BlockEntity too early! Must wait until after the BlockEntity has been set in the world. (" + blockEntity.getClass().toString() + ")");
 
 			return;
 		}
@@ -69,7 +69,7 @@ public interface GeoBlockEntity extends GeoAnimatable {
 		Level level = blockEntity.getLevel();
 
 		if (level == null) {
-			GeckoLib.LOGGER.error("Attempting to trigger an animation for a BlockEntity too early! Must wait until after the BlockEntity has been set in the world. (" + blockEntity.getClass().toString() + ")");
+			LioLib.LOGGER.error("Attempting to trigger an animation for a BlockEntity too early! Must wait until after the BlockEntity has been set in the world. (" + blockEntity.getClass().toString() + ")");
 
 			return;
 		}

@@ -8,7 +8,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.util.GsonHelper;
 import org.apache.commons.lang3.math.NumberUtils;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.core.animation.Animation;
 import net.liopyu.liolib.core.animation.EasingType;
 import net.liopyu.liolib.core.keyframe.BoneAnimation;
@@ -39,7 +39,7 @@ public class BakedAnimationsAdapter implements JsonDeserializer<BakedAnimations>
 				animations.put(entry.getKey(), bakeAnimation(entry.getKey(), entry.getValue().getAsJsonObject(), context));
 			}
 			catch (MolangException ex) {
-				GeckoLib.LOGGER.error("Unable to parse animation: " + entry.getKey());
+				LioLib.LOGGER.error("Unable to parse animation: " + entry.getKey());
 				ex.printStackTrace();
 			}
 		}

@@ -7,7 +7,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.core.object.DataTicket;
 import net.liopyu.liolib.model.data.EntityModelData;
 import net.liopyu.liolib.network.SerializableDataTicket;
@@ -37,13 +37,13 @@ public final class DataTickets {
 	// Builtin serializable tickets
 	// These are not used anywhere by default, but are provided as examples
 	// and for ease of use
-	public static final SerializableDataTicket<Integer> ANIM_STATE = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofInt(new ResourceLocation(GeckoLib.MOD_ID, "anim_state")));
-	public static final SerializableDataTicket<String> ANIM = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofString(new ResourceLocation(GeckoLib.MOD_ID, "anim")));
-	public static final SerializableDataTicket<Integer> USE_TICKS = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofInt(new ResourceLocation(GeckoLib.MOD_ID, "use_ticks")));
-	public static final SerializableDataTicket<Boolean> ACTIVE = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofBoolean(new ResourceLocation(GeckoLib.MOD_ID, "active")));
-	public static final SerializableDataTicket<Boolean> OPEN = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofBoolean(new ResourceLocation(GeckoLib.MOD_ID, "open")));
-	public static final SerializableDataTicket<Boolean> CLOSED = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofBoolean(new ResourceLocation(GeckoLib.MOD_ID, "closed")));
-	public static final SerializableDataTicket<Direction> DIRECTION = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofEnum(new ResourceLocation(GeckoLib.MOD_ID, "direction"), Direction.class));
+	public static final SerializableDataTicket<Integer> ANIM_STATE = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofInt(new ResourceLocation(LioLib.MOD_ID, "anim_state")));
+	public static final SerializableDataTicket<String> ANIM = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofString(new ResourceLocation(LioLib.MOD_ID, "anim")));
+	public static final SerializableDataTicket<Integer> USE_TICKS = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofInt(new ResourceLocation(LioLib.MOD_ID, "use_ticks")));
+	public static final SerializableDataTicket<Boolean> ACTIVE = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofBoolean(new ResourceLocation(LioLib.MOD_ID, "active")));
+	public static final SerializableDataTicket<Boolean> OPEN = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofBoolean(new ResourceLocation(LioLib.MOD_ID, "open")));
+	public static final SerializableDataTicket<Boolean> CLOSED = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofBoolean(new ResourceLocation(LioLib.MOD_ID, "closed")));
+	public static final SerializableDataTicket<Direction> DIRECTION = GeckoLibUtil.addDataTicket(SerializableDataTicket.ofEnum(new ResourceLocation(LioLib.MOD_ID, "direction"), Direction.class));
 
 	@Nullable
 	public static SerializableDataTicket<?> byName(String id) {
@@ -60,7 +60,7 @@ public final class DataTickets {
 		SerializableDataTicket<?> existingTicket = SERIALIZABLE_TICKETS.putIfAbsent(ticket.id(), ticket);
 
 		if (existingTicket != null)
-			GeckoLib.LOGGER.error("Duplicate SerializableDataTicket registered! This will cause issues. Existing: " + existingTicket.id() + ", New: " + ticket.id());
+			LioLib.LOGGER.error("Duplicate SerializableDataTicket registered! This will cause issues. Existing: " + existingTicket.id() + ", New: " + ticket.id());
 
 		return ticket;
 	}

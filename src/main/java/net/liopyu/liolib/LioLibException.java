@@ -5,18 +5,18 @@ import net.minecraft.resources.ResourceLocation;
 import java.io.Serial;
 
 /**
- * Generic {@link Exception} wrapper for GeckoLib.<br>
+ * Generic {@link Exception} wrapper for LioLib.<br>
  * Mostly just serves as a marker for internal error handling.
  */
-public class GeckoLibException extends RuntimeException {
+public class LioLibException extends RuntimeException {
 	@Serial
 	private static final long serialVersionUID = 1L;
 
-	public GeckoLibException(ResourceLocation fileLocation, String message) {
+	public LioLibException(ResourceLocation fileLocation, String message) {
 		super(fileLocation + ": " + message);
 	}
 
-	public GeckoLibException(ResourceLocation fileLocation, String message, Throwable cause) {
+	public LioLibException(ResourceLocation fileLocation, String message, Throwable cause) {
 		super(fileLocation + ": " + message, cause);
 	}
 }

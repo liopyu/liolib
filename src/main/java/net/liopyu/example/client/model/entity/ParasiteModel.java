@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.liopyu.example.client.renderer.entity.ParasiteRenderer;
 import net.liopyu.example.entity.ParasiteEntity;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.model.DefaultedEntityGeoModel;
 import net.liopyu.liolib.model.GeoModel;
 
@@ -14,7 +14,7 @@ import net.liopyu.liolib.model.GeoModel;
  */
 public class ParasiteModel extends DefaultedEntityGeoModel<ParasiteEntity> {
 	public ParasiteModel() {
-		super(new ResourceLocation(GeckoLib.MOD_ID, "parasite"));
+		super(new ResourceLocation(LioLib.MOD_ID, "parasite"));
 	}
 
 	// We want our model to render using the translucent render type

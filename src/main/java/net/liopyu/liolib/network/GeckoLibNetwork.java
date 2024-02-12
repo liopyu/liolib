@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.core.animatable.GeoAnimatable;
 import net.liopyu.liolib.network.packet.*;
 
@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public final class GeckoLibNetwork {
 	private static final String VER = "1";
-	private static final SimpleChannel PACKET_CHANNEL = NetworkRegistry.newSimpleChannel(new ResourceLocation(GeckoLib.MOD_ID, "main"), () -> VER, VER::equals, VER::equals);
+	private static final SimpleChannel PACKET_CHANNEL = NetworkRegistry.newSimpleChannel(new ResourceLocation(LioLib.MOD_ID, "main"), () -> VER, VER::equals, VER::equals);
 
 	private static final Map<String, GeoAnimatable> SYNCED_ANIMATABLES = new Object2ObjectOpenHashMap<>();
 
@@ -41,7 +41,7 @@ public final class GeckoLibNetwork {
 		GeoAnimatable existing = SYNCED_ANIMATABLES.put(animatable.getClass().toString(), animatable);
 
 		if (existing == null)
-			GeckoLib.LOGGER.debug("Registered SyncedAnimatable for " + animatable.getClass().toString());
+			LioLib.LOGGER.debug("Registered SyncedAnimatable for " + animatable.getClass().toString());
 	}
 
 	/**
@@ -53,7 +53,7 @@ public final class GeckoLibNetwork {
 		GeoAnimatable animatable = SYNCED_ANIMATABLES.get(className);
 
 		if (animatable == null)
-			GeckoLib.LOGGER.error("Attempting to retrieve unregistered synced animatable! (" + className + ")");
+			LioLib.LOGGER.error("Attempting to retrieve unregistered synced animatable! (" + className + ")");
 
 		return animatable;
 	}

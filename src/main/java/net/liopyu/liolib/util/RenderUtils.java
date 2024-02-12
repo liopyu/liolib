@@ -26,7 +26,7 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.cache.object.GeoCube;
 import net.liopyu.liolib.core.animatable.GeoAnimatable;
 import net.liopyu.liolib.core.animatable.model.CoreGeoBone;
@@ -136,7 +136,7 @@ public final class RenderUtils {
 			originalTexture = mc.submit(() -> mc.getTextureManager().getTexture(texture)).get();
 		}
 		catch (Exception e) {
-			GeckoLib.LOGGER.warn("Failed to load image for id {}", texture);
+			LioLib.LOGGER.warn("Failed to load image for id {}", texture);
 			e.printStackTrace();
 		}
 
@@ -150,7 +150,7 @@ public final class RenderUtils {
 					: NativeImage.read(mc.getResourceManager().getResource(texture).get().open());
 		}
 		catch (Exception e) {
-			GeckoLib.LOGGER.error("Failed to read image for id {}", texture);
+			LioLib.LOGGER.error("Failed to read image for id {}", texture);
 			e.printStackTrace();
 		}
 

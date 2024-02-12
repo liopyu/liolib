@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.liopyu.example.block.entity.FertilizerBlockEntity;
 import net.liopyu.example.client.renderer.block.FertilizerBlockRenderer;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.model.DefaultedBlockGeoModel;
 import net.liopyu.liolib.model.GeoModel;
 
@@ -18,12 +18,12 @@ import net.liopyu.liolib.model.GeoModel;
  * @see FertilizerBlockRenderer
  */
 public class FertilizerModel extends DefaultedBlockGeoModel<FertilizerBlockEntity> {
-	private final ResourceLocation BOTARIUM_MODEL = buildFormattedModelPath(new ResourceLocation(GeckoLib.MOD_ID, "botarium"));
-	private final ResourceLocation BOTARIUM_TEXTURE = buildFormattedTexturePath(new ResourceLocation(GeckoLib.MOD_ID, "botarium"));
-	private final ResourceLocation BOTARIUM_ANIMATIONS = buildFormattedAnimationPath(new ResourceLocation(GeckoLib.MOD_ID, "botarium"));
+	private final ResourceLocation BOTARIUM_MODEL = buildFormattedModelPath(new ResourceLocation(LioLib.MOD_ID, "botarium"));
+	private final ResourceLocation BOTARIUM_TEXTURE = buildFormattedTexturePath(new ResourceLocation(LioLib.MOD_ID, "botarium"));
+	private final ResourceLocation BOTARIUM_ANIMATIONS = buildFormattedAnimationPath(new ResourceLocation(LioLib.MOD_ID, "botarium"));
 
 	public FertilizerModel() {
-		super(new ResourceLocation(GeckoLib.MOD_ID, "fertilizer"));
+		super(new ResourceLocation(LioLib.MOD_ID, "fertilizer"));
 	}
 
 	/**

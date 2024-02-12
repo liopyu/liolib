@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.liopyu.example.client.renderer.entity.MutantZombieRenderer;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.animatable.GeoEntity;
 import net.liopyu.liolib.constant.DefaultAnimations;
 import net.liopyu.liolib.core.animatable.GeoAnimatable;
@@ -171,7 +171,7 @@ public class DynamicExampleEntity extends PathfinderMob implements GeoEntity {
 		EquipmentSlot slot = LivingEntity.getEquipmentSlotForItem(stack);
 
 		setItemSlot(slot, stack.copy());
-		player.sendSystemMessage(Component.translatable("entity." + GeckoLib.MOD_ID + ".mutant_zombie.equip", stack.getDisplayName()));
+		player.sendSystemMessage(Component.translatable("entity." + LioLib.MOD_ID + ".mutant_zombie.equip", stack.getDisplayName()));
 
 		if (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)
 			triggerAnim(getLeftHand() == hand ? "Left Hand" : "Right Hand", "interact");

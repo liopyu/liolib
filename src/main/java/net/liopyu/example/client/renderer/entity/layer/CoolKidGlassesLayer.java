@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.liopyu.example.entity.CoolKidEntity;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.cache.object.BakedGeoModel;
 import net.liopyu.liolib.renderer.GeoRenderer;
 import net.liopyu.liolib.renderer.layer.GeoRenderLayer;
@@ -18,7 +18,7 @@ import net.liopyu.liolib.renderer.layer.GeoRenderLayer;
  * @see net.liopyu.example.client.renderer.entity.CoolKidRenderer
  */
 public class CoolKidGlassesLayer extends GeoRenderLayer<CoolKidEntity> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(GeckoLib.MOD_ID, "textures/entity/cool_kid_glasses.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(LioLib.MOD_ID, "textures/entity/cool_kid_glasses.png");
 
 	public CoolKidGlassesLayer(GeoRenderer<CoolKidEntity> entityRenderer) {
         super(entityRenderer);

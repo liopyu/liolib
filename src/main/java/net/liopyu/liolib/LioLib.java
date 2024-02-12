@@ -8,13 +8,13 @@ import net.liopyu.liolib.network.GeckoLibNetwork;
 import net.liopyu.liolib.cache.GeckoLibCache;
 
 /**
- * Base class for Geckolib!<br>
+ * Base class for LioLib!<br>
  * Hello World!<br>
  * There's not much to really see here, but feel free to stay a while and have a snack or something.
  * @see net.liopyu.liolib.util.GeckoLibUtil
  * @see <a href="https://github.com/bernie-g/geckolib/wiki/Getting-Started">GeckoLib Wiki - Getting Started</a>
  */
-public class GeckoLib {
+public class LioLib {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "liolib";
 	public static volatile boolean hasInitialized;

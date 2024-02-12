@@ -7,7 +7,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
-import net.liopyu.liolib.GeckoLibException;
+import net.liopyu.liolib.LioLibException;
 import net.liopyu.liolib.cache.GeckoLibCache;
 import net.liopyu.liolib.cache.object.BakedGeoModel;
 import net.liopyu.liolib.cache.object.GeoBone;
@@ -83,7 +83,7 @@ public abstract class GeoModel<T extends GeoAnimatable> implements CoreGeoModel<
 		BakedGeoModel model = GeckoLibCache.getBakedModels().get(location);
 
 		if (model == null)
-			throw new GeckoLibException(location, "Unable to find model");
+			throw new LioLibException(location, "Unable to find model");
 
 		if (model != this.currentModel) {
 			this.processor.setActiveModel(model);
@@ -111,7 +111,7 @@ public abstract class GeoModel<T extends GeoAnimatable> implements CoreGeoModel<
 		BakedAnimations bakedAnimations = GeckoLibCache.getBakedAnimations().get(location);
 
 		if (bakedAnimations == null)
-			throw new GeckoLibException(location, "Unable to find animation.");
+			throw new LioLibException(location, "Unable to find animation.");
 
 		return bakedAnimations.getAnimation(name);
 	}

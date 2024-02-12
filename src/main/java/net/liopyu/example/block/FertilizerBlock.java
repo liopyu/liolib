@@ -17,7 +17,7 @@ import net.minecraft.world.level.material.Material;
 import net.liopyu.example.block.entity.FertilizerBlockEntity;
 import net.liopyu.example.client.renderer.block.FertilizerBlockRenderer;
 import net.liopyu.example.registry.BlockEntityRegistry;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -57,7 +57,7 @@ public class FertilizerBlock extends DirectionalBlock implements EntityBlock {
 
 	@Override
 	public void appendHoverText(ItemStack stack, BlockGetter blockGetter, List<Component> tooltip, TooltipFlag tooltipFlag) {
-		tooltip.add(Component.translatable("block." + GeckoLib.MOD_ID + ".fertilizer.tooltip"));
+		tooltip.add(Component.translatable("block." + LioLib.MOD_ID + ".fertilizer.tooltip"));
 
 		super.appendHoverText(stack, blockGetter, tooltip, tooltipFlag);
 	}

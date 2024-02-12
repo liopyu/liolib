@@ -7,11 +7,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.liopyu.example.entity.*;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 
 public final class EntityRegistry {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES,
-			GeckoLib.MOD_ID);
+			LioLib.MOD_ID);
 
 	public static final RegistryObject<EntityType<BatEntity>> BAT = registerMob("bat", BatEntity::new,
 			0.7f, 1.3f, 0x1F1F1F, 0x0D0D0D);

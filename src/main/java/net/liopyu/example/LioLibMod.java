@@ -5,6 +5,7 @@
 
 package net.liopyu.example;
 
+import net.liopyu.liolib.LioLib;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,16 +14,15 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.liopyu.example.registry.*;
-import net.liopyu.liolib.GeckoLib;
 
 @EventBusSubscriber
-@Mod(GeckoLib.MOD_ID)
-public final class GeckoLibMod {
+@Mod(LioLib.MOD_ID)
+public final class LioLibMod {
 	public static CreativeModeTab geckolibItemGroup;
 	public static final String DISABLE_EXAMPLES_PROPERTY_KEY = "liolib.disable_examples";
 
-	public GeckoLibMod() {
-		GeckoLib.initialize();
+	public LioLibMod() {
+		LioLib.initialize();
 
 		if (shouldRegisterExamples()) {
 			IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -48,7 +48,7 @@ public final class GeckoLibMod {
 	 * These examples are <u>not</u> present when in a production environment
 	 * (normal players).<br>
 	 * This can be disabled by setting the
-	 * {@link GeckoLibMod#DISABLE_EXAMPLES_PROPERTY_KEY} to false in your run args
+	 * {@link LioLibMod#DISABLE_EXAMPLES_PROPERTY_KEY} to false in your run args
 	 */
 	static boolean shouldRegisterExamples() {
 		return !FMLEnvironment.production && !Boolean.getBoolean(DISABLE_EXAMPLES_PROPERTY_KEY);

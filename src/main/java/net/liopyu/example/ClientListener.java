@@ -27,14 +27,14 @@ import net.liopyu.example.client.renderer.entity.ReplacedCreeperRenderer;
 import net.liopyu.example.registry.BlockEntityRegistry;
 import net.liopyu.example.registry.BlockRegistry;
 import net.liopyu.example.registry.EntityRegistry;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 
-@Mod.EventBusSubscriber(modid = GeckoLib.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = LioLib.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientListener {
 
 	@SubscribeEvent
 	public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
-		if (GeckoLibMod.shouldRegisterExamples()) {
+		if (LioLibMod.shouldRegisterExamples()) {
 			event.registerEntityRenderer(EntityRegistry.BAT.get(), BatRenderer::new);
 			event.registerEntityRenderer(EntityRegistry.BIKE.get(), BikeRenderer::new);
 			event.registerEntityRenderer(EntityRegistry.RACE_CAR.get(), RaceCarRenderer::new);
@@ -53,7 +53,7 @@ public final class ClientListener {
 
 	@SubscribeEvent
 	public static void registerRenderers(final FMLClientSetupEvent event) {
-		if (GeckoLibMod.shouldRegisterExamples())
+		if (LioLibMod.shouldRegisterExamples())
 			ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GECKO_HABITAT.get(), RenderType.translucent());
 	}
 }

@@ -8,13 +8,13 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.liopyu.example.registry.EntityRegistry;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 
-@Mod.EventBusSubscriber(modid = GeckoLib.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = LioLib.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class CommonListener {
 	@SubscribeEvent
 	public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
-		if (GeckoLibMod.shouldRegisterExamples()) {
+		if (LioLibMod.shouldRegisterExamples()) {
 			AttributeSupplier.Builder genericAttribs = PathfinderMob.createMobAttributes()
 					.add(Attributes.FOLLOW_RANGE, 16)
 					.add(Attributes.MAX_HEALTH, 1);

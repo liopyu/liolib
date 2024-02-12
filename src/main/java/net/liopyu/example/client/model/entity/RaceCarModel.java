@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.liopyu.example.client.renderer.entity.RaceCarRenderer;
 import net.liopyu.example.entity.RaceCarEntity;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.model.DefaultedEntityGeoModel;
 import net.liopyu.liolib.model.GeoModel;
 
@@ -14,7 +14,7 @@ import net.liopyu.liolib.model.GeoModel;
  */
 public class RaceCarModel extends DefaultedEntityGeoModel<RaceCarEntity> {
 	public RaceCarModel() {
-		super(new ResourceLocation(GeckoLib.MOD_ID, "race_car"));
+		super(new ResourceLocation(LioLib.MOD_ID, "race_car"));
 	}
 
 	// We want our model to render using the translucent render type

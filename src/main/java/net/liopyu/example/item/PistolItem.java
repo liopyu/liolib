@@ -16,7 +16,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.liopyu.example.client.renderer.item.PistolRenderer;
-import net.liopyu.liolib.GeckoLib;
+import net.liopyu.liolib.LioLib;
 import net.liopyu.liolib.animatable.GeoItem;
 import net.liopyu.liolib.animatable.SingletonGeoAnimatable;
 import net.liopyu.liolib.constant.DefaultAnimations;
@@ -124,7 +124,7 @@ public class PistolItem extends Item implements GeoItem {
 	// Let's add some ammo text to the tooltip
 	@Override
 	public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-		tooltip.add(Component.translatable("item." + GeckoLib.MOD_ID + ".pistol.ammo",
+		tooltip.add(Component.translatable("item." + LioLib.MOD_ID + ".pistol.ammo",
 				stack.getMaxDamage() - stack.getDamageValue() - 1,
 				stack.getMaxDamage() - 1)
 				.withStyle(ChatFormatting.ITALIC));

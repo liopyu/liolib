@@ -9,8 +9,8 @@ import net.minecraft.server.packs.resources.ReloadableResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraftforge.fml.ModLoader;
-import net.liopyu.liolib.GeckoLib;
-import net.liopyu.liolib.GeckoLibException;
+import net.liopyu.liolib.LioLib;
+import net.liopyu.liolib.LioLibException;
 import net.liopyu.liolib.cache.object.BakedGeoModel;
 import net.liopyu.liolib.core.animatable.model.CoreGeoModel;
 import net.liopyu.liolib.loading.FileLoader;
@@ -41,14 +41,14 @@ public final class GeckoLibCache {
 	private static Map<ResourceLocation, BakedGeoModel> MODELS = Collections.emptyMap();
 
 	public static Map<ResourceLocation, BakedAnimations> getBakedAnimations() {
-		if (!GeckoLib.hasInitialized)
+		if (!LioLib.hasInitialized)
 			throw new RuntimeException("GeckoLib was never initialized! Please read the documentation!");
 
 		return ANIMATIONS;
 	}
 
 	public static Map<ResourceLocation, BakedGeoModel> getBakedModels() {
-		if (!GeckoLib.hasInitialized)
+		if (!LioLib.hasInitialized)
 			throw new RuntimeException("GeckoLib was never initialized! Please read the documentation!");
 
 		return MODELS;
@@ -59,7 +59,7 @@ public final class GeckoLibCache {
 
 		if (mc == null) {
 			if (!ModLoader.isDataGenRunning())
-				GeckoLib.LOGGER.warn("Minecraft.getInstance() was null, could not register reload listeners");
+				LioLib.LOGGER.warn("Minecraft.getInstance() was null, could not register reload listeners");
 
 			return;
 		}
@@ -95,7 +95,7 @@ public final class GeckoLibCache {
 			Model model = FileLoader.loadModelFile(resource, resourceManager);
 
 			if (model.formatVersion() != FormatVersion.V_1_12_0)
-				throw new GeckoLibException(resource, "Unsupported geometry json version. Supported versions: 1.12.0");
+				throw new LioLibException(resource, "Unsupported geometry json version. Supported versions: 1.12.0");
 
 			return BakedModelFactory.getForNamespace(resource.getNamespace()).constructGeoModel(GeometryTree.fromModel(model));
 			}, elementConsumer);
