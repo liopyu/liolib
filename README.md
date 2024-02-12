@@ -14,10 +14,10 @@ Refer to the [official GeckoLib documentation](https://github.com/bernie-g/gecko
 To integrate LioLib into your project, add the following repositories and dependencies to your `build.gradle`:
 ```
 repositories {
-maven { url 'https://dl.cloudsmith.io/public/workspace-for-mistaken/liolib-7cz/maven/' }
+maven { url 'https://dl.cloudsmith.io/public/lio/liolib/maven/' }
 }
 dependencies {
-implementation 'net.liopyu.liolib:liolib-forge-1.19.2-0.0.1:0.0.1'
+implementation 'net.liopyu.liolib:liolib-forge-1.19.2:0.0.1'
 }
 ```
 
