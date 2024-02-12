@@ -1,7 +1,7 @@
-# GeckoLib 4.0 to 1.19.2 Backport
+![liolib-banner](https://i.ibb.co/dM3r3L1/liolib-banner.png)
 
-## Introduction
-Welcome to LioLib! This project brings the power of GeckoLib's 4.0 animation engine to Minecraft version 1.19.2. Originally developed for version 1.19.3, this backport enables users to leverage advanced animation capabilities within their Minecraft mods. Initially created for personal use in EntityJS Mod as its animation engine, this backport is now available for broader use, providing support akin to Gecko's 4.0+ versions.
+# Introduction
+Welcome to LioLib! This fork brings the power of GeckoLib's 4.0 animation engine to Minecraft version 1.19.2. Initially created for personal use in EntityJS Mod as its animation engine, this backport is now available for broader use, providing support akin to Gecko's 4.0+ versions.
 
 ## Features
 - **Backported Animation Engine**: Enjoy the full functionality of GeckoLib's 1.19.3 animation engine in the unsupported Minecraft 1.19.2.
@@ -13,14 +13,12 @@ Refer to the [official GeckoLib documentation](https://github.com/bernie-g/gecko
 ### Gradle Setup
 To integrate LioLib into your project, add the following repositories and dependencies to your `build.gradle`:
 
-```gradle
 repositories {
-    maven { url 'https://dl.cloudsmith.io/public/workspace-for-mistaken/liolib-7cz/maven/' }
+maven { url 'https://dl.cloudsmith.io/public/workspace-for-mistaken/liolib-7cz/maven/' }
 }
 dependencies {
-    implementation 'net.liopyu.liolib:liolib-forge-1.19.2-0.0.1:0.0.1'
+implementation 'net.liopyu.liolib:liolib-forge-1.19.2-0.0.1:0.0.1'
 }
-```
 
 ## Issues and Contributions
 If you encounter any issues or have suggestions for improvements, please open an issue on this mod's GitHub repository instead of GeckoLib. Contributions are welcome through pull requests.
