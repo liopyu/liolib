@@ -17,7 +17,7 @@ repositories {
 maven { url 'https://dl.cloudsmith.io/public/lio/liolib/maven/' }
 }
 dependencies {
-implementation 'net.liopyu.liolib:liolib-forge-1.19.2:0.0.1'
+implementation fg.deobf('net.liopyu.liolib:liolib-forge-1.19.2:0.0.1')
 }
 ```
 
