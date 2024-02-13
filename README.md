@@ -24,7 +24,7 @@ implementation fg.deobf('net.liopyu.liolib:liolib-forge-1.19.2:0.0.1')
 ## Issues and Contributions
 If you encounter any issues or have suggestions for improvements, please open an issue on this mod's GitHub repository instead of GeckoLib. Contributions are welcome through pull requests.
 
-## [![discord](https://i.ibb.co/qDNhg49/636e0a6a49cf127bf92de1e2-icon-clyde-blurple-RGB.png)](https://discord.com/invite/b38h9pBFzC)
+## <img src="https://i.ibb.co/qDNhg49/636e0a6a49cf127bf92de1e2-icon-clyde-blurple-RGB.png" alt="discord" width="64" />
 
 ## License
 This project is licensed under the [MIT License](https://github.com/liopyu/liolib/blob/master/LICENSE).
