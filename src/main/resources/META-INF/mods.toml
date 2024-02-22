@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[43,)"
-issueTrackerURL="https://github.com/liopyu/entityjs-geckolib4/issues"
+issueTrackerURL="https://github.com/liopyu/liolib"
 license="MIT"
 [[mods]]
 modId="liolib"
